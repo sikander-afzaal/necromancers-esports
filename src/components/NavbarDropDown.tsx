@@ -1,14 +1,21 @@
 import { useState } from "react";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
+
+type dropItems = {
+  name: string;
+  link: string;
+};
 
 type Props = {
   text: string;
-  dropItems: string[];
+  dropItems: dropItems[];
   last?: boolean;
+  headerToggle: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const NavbarDropDown = ({ text, dropItems, last }: Props) => {
+const NavbarDropDown = ({ text, dropItems, last, headerToggle }: Props) => {
   const [activeDrop, setActiveDrop] = useState(false);
   return (
     <div className="flex  relative w-full flex-col justify-start lg:min-h-0 min-h-max lg:h-[80px] items-center sm:items-start">
@@ -56,13 +63,17 @@ const NavbarDropDown = ({ text, dropItems, last }: Props) => {
         >
           {dropItems.map((item, index) => {
             return (
-              <a
-                key={index + item}
-                href="#"
+              <Link
+                onClick={() => {
+                  headerToggle(false);
+                  setActiveDrop(false);
+                }}
+                key={index + item.name}
+                to={item.link}
                 className="flex justify-center sm:justify-start items-center lg:px-[34px] min-h-[55px] lg:min-h-[70px] border-b-[#242633] text-sm font-bold border-solid border-b-2 text-white hover:text-primary transition-all duration-200 uppercase w-full"
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             );
           })}
         </div>
