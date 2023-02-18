@@ -1,5 +1,4 @@
 type Props = {
-  label: string;
   inputType: string;
   name: string;
   placeholder: string;
@@ -7,30 +6,16 @@ type Props = {
   handler: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const InputBox = ({
-  label,
-  inputType,
-  name,
-  placeholder,
-  value,
-  handler,
-}: Props) => {
+const InputBox = ({ inputType, name, placeholder, value, handler }: Props) => {
   return (
     <div className="flex justify-start w-full items-start flex-col gap-2">
-      <label
-        htmlFor={label}
-        className="text-white uppercase font-medium text-2xl"
-      >
-        {label}
-      </label>
       <input
         onChange={handler}
         type={inputType}
         value={value}
-        id={label}
         name={name}
         placeholder={placeholder}
-        className="w-full h-[50px] pl-3 bg-transparent border border-secondary text-white placeholder:text-white rounded-md text-lg font-medium focus:border-primary transition-all duration-300 outline-none border-solid"
+        className="w-full pb-[12px]  bg-transparent border-b border-[#dfe0e5] text-tertiary placeholder:text-[#dfe0e5]  text-xl font-medium focus:border-primary transition-all duration-300 outline-none border-solid"
       />
     </div>
   );
