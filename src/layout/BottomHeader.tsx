@@ -44,10 +44,10 @@ const BottomHeader = () => {
         <div
           className={`flex h-full justify-end mid:justify-between items-center w-full `}
         >
-          <Link to={"/"}>
+          <Link className="left-3 absolute -bottom-3 sm:bottom-5" to={"/"}>
             <img
               src="/logo.png"
-              className={`w-[80px] sm:w-[100px] mid:w-[130px] 2xl:w-[200px] left-3 absolute -bottom-3 sm:bottom-5 object-contain ${
+              className={`w-[80px] sm:w-[100px] mid:w-[130px] 2xl:w-[200px] object-contain ${
                 headerToggle
                   ? "-translate-y-3 opacity-0"
                   : "translate-y-0 opacity-100"
