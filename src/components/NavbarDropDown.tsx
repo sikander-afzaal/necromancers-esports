@@ -12,13 +12,24 @@ type Props = {
   text: string;
   dropItems: dropItems[];
   last?: boolean;
-  headerToggle: React.Dispatch<React.SetStateAction<boolean>>;
+  headerToggle?: React.Dispatch<React.SetStateAction<boolean>>;
+  top?: boolean;
 };
 
-const NavbarDropDown = ({ text, dropItems, last, headerToggle }: Props) => {
+const NavbarDropDown = ({
+  text,
+  dropItems,
+  last,
+  headerToggle,
+  top,
+}: Props) => {
   const [activeDrop, setActiveDrop] = useState(false);
   return (
-    <div className="flex  relative w-full flex-col justify-start lg:min-h-0 min-h-max lg:h-[80px] items-center sm:items-start">
+    <div
+      className={`flex  relative w-full flex-col justify-start lg:min-h-0 min-h-max ${
+        top ? "lg:h-[110px]" : "lg:h-[80px]"
+      }  items-center sm:items-start`}
+    >
       <button
         onMouseEnter={() => {
           if (window.innerWidth <= 1024) return;
@@ -54,9 +65,9 @@ const NavbarDropDown = ({ text, dropItems, last, headerToggle }: Props) => {
           activeDrop
             ? "max-h-[2000px] lg:max-h-none lg:opacity-100 lg:translate-y-0 lg:pointer-events-auto"
             : "max-h-0 lg:max-h-none lg:pointer-events-none lg:opacity-0 lg:translate-y-[100px]"
-        } transition-all duration-700 lg:duration-300 z-[100] static lg:absolute top-[100%] ${
-          last ? "lg:right-0" : "lg:-left-5"
-        }  `}
+        } transition-all duration-700 lg:duration-300 z-[100] static lg:absolute ${
+          top ? "bottom-full" : "top-full"
+        } ${last ? "lg:right-0" : "lg:-left-5"}  `}
       >
         <div
           className={`flex justify-start w-full items-center sm:items-start flex-col bg-dark `}
@@ -65,7 +76,9 @@ const NavbarDropDown = ({ text, dropItems, last, headerToggle }: Props) => {
             return (
               <Link
                 onClick={() => {
-                  headerToggle(false);
+                  if (headerToggle) {
+                    headerToggle(false);
+                  }
                   setActiveDrop(false);
                 }}
                 key={index + item.name}
