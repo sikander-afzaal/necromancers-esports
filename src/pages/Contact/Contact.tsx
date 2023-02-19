@@ -33,7 +33,7 @@ const Contact = () => {
 
   return (
     <>
-      <div className="flex pt-[70px] sm:pb-[50px] lg:flex-row flex-col-reverse gap-8 lg:gap-0 w-full justify-start items-start">
+      <div className="flex pt-[70px] sm:pt-0 sm:pb-[50px] lg:flex-row flex-col-reverse gap-8 lg:gap-0 w-full justify-start items-start">
         <div className="w-full lg:sticky flex justify-start items-start top-0 lg:min-h-screen">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1511.0945291570047!2d-73.97949619999999!3d40.75786635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258fedd6dd4e1%3A0xa800943585f6e146!2sDiamond%20District%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1676738655819!5m2!1sen!2s"

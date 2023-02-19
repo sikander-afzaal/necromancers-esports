@@ -8,13 +8,13 @@ import NavbarDropDown from "../components/NavbarDropDown";
 const BottomHeader = () => {
   const [headerToggle, setHeaderToggle] = useState(false);
   return (
-    <div className="fixed w-full flex justify-center items-center top-0 sm:bottom-0 left-0 bg-dark h-[72px] mid:h-[100px]">
+    <div className="fixed w-full flex justify-center items-center bottom-full translate-y-full sm:translate-y-0 sm:bottom-0 left-0 bg-dark h-[72px] mid:h-[100px]">
       <div
         className={`flex h-full justify-end mid:justify-between items-center w-full `}
       >
         <img
           src="/logo.png"
-          className={`w-[80px] sm:w-[100px] mid:w-[130px] 2xl:w-[200px] left-3 absolute top-2 sm:bottom-5 object-contain ${
+          className={`w-[80px] sm:w-[100px] mid:w-[130px] 2xl:w-[200px] left-3 absolute -bottom-3 sm:bottom-5 object-contain ${
             headerToggle
               ? "-translate-y-3 opacity-0"
               : "translate-y-0 opacity-100"
