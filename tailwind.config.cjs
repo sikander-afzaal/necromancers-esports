@@ -45,6 +45,9 @@ module.exports = {
       backgroundImage: {
         bodyBg: "url('/body-bg.jpg')",
       },
+      screens: {
+        mid: "1180px",
+      },
     },
   },
   plugins: [],
