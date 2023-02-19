@@ -41,9 +41,9 @@ const Header = () => {
         />
         <NavbarDropDown
           headerToggle={setHeaderToggle}
-          text="Matches"
+          text="About"
           dropItems={[
-            { name: "Team Selection", link: "" },
+            { name: "About", link: "/about" },
             { name: "Team Selection", link: "" },
             { name: "Team Selection", link: "" },
             { name: "Team Selection", link: "" },

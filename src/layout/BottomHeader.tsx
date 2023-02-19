@@ -289,7 +289,7 @@ const BottomHeader = () => {
         <DropDownDesktop headerToggle={headerToggle} />
       </div>
       {/* //mobile drop down --------------------- */}
-      <div className="sm:hidden w-full block">
+      <div className="sm:hidden w-full block overflow-y-auto">
         <AnimatePresence mode="wait">
           {headerToggle && (
             <motion.div
@@ -298,10 +298,10 @@ const BottomHeader = () => {
               initial={{ translateY: -100, opacity: 0 }}
               animate={{ translateY: 0, opacity: 1 }}
               exit={{ translateY: -100, opacity: 0 }}
-              className="flex justify-start items-start flex-col w-full h-full top-0 left-0 fixed pt-[102px] bg-dark z-[90] overflow-y-auto"
+              className="flex justify-start items-start flex-col w-full h-screen top-0 left-0 fixed pt-[102px] bg-dark z-[90] overflow-y-auto"
             >
               {/* //main pages menu --------- */}
-              <div className="flex overflow-hidden flex-col justify-start items-center  bg-transparent w-full">
+              <div className="flex min-h-max overflow-hidden flex-col justify-start items-center  bg-transparent w-full">
                 <button
                   onClick={() => setTogglePagesMenu((prev) => !prev)}
                   className="flex justify-between items-center w-full py-4 px-6 border-b border-solid border-[#242633] uppercase text-white text-sm font-bold"
@@ -375,7 +375,7 @@ const BottomHeader = () => {
                 </div>
               </div>
               {/* // social links menu --------- */}
-              <div className="flex  flex-col overflow-hidden justify-start items-center  bg-transparent w-full">
+              <div className="flex min-h-max  flex-col overflow-hidden justify-start items-center  bg-transparent w-full">
                 <button
                   onClick={() => setToggleSocialMenu((prev) => !prev)}
                   className="flex border-b border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold"
@@ -438,7 +438,7 @@ const BottomHeader = () => {
                 </div>
               </div>
               {/* // contact menu --------- */}
-              <div className="flex  flex-col overflow-hidden justify-start items-center  bg-transparent w-full">
+              <div className="flex min-h-max  flex-col overflow-hidden justify-start items-center  bg-transparent w-full">
                 <button
                   onClick={() => setToggleContactMenu((prev) => !prev)}
                   className="flex border-b border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold"
@@ -453,10 +453,47 @@ const BottomHeader = () => {
                   className={`flex w-full justify-start items-start transition-all duration-1000 flex-col ${
                     toggleContactMenu ? "max-h-[9000px]" : "max-h-0"
                   }`}
-                ></div>
+                >
+                  <a
+                    className="flex justify-start border-b border-solid border-[#242633] py-4 px-6 items-start flex-col gap-0  text-white uppercase font-bold text-xs hover:opacity-50 transition-all duration-300 w-full"
+                    href="mailto:MP-RECRUIT@NECROMANCERS.COM"
+                  >
+                    <span className="text-secondary uppercase text-[0.675rem] leading-[0] mb-1">
+                      Max parker - recruiter
+                    </span>
+                    <span>
+                      MP-RECRUIT<span className="text-primary">@</span>
+                      NECROMANCERS.COM
+                    </span>
+                  </a>
+                  <a
+                    className="flex justify-start border-b border-solid w-full border-[#242633] py-4 px-6 items-start flex-col gap-0  text-white uppercase font-bold text-xs hover:opacity-50 transition-all duration-300"
+                    href="mailto:MP-RECRUIT@NECROMANCERS.COM"
+                  >
+                    <span className="text-secondary uppercase text-[0.675rem] leading-[0] mb-1">
+                      Max parker - recruiter
+                    </span>
+                    <span>
+                      MP-RECRUIT<span className="text-primary">@</span>
+                      NECROMANCERS.COM
+                    </span>
+                  </a>
+                  <a
+                    className="flex justify-start py-4 border-b border-solid border-[#242633] w-full px-6 items-start flex-col gap-0  text-white uppercase font-bold text-xs hover:opacity-50 transition-all duration-300"
+                    href="mailto:MP-RECRUIT@NECROMANCERS.COM"
+                  >
+                    <span className="text-secondary uppercase text-[0.675rem] leading-[0] mb-1">
+                      Max parker - recruiter
+                    </span>
+                    <span>
+                      MP-RECRUIT<span className="text-primary">@</span>
+                      NECROMANCERS.COM
+                    </span>
+                  </a>
+                </div>
               </div>
               {/* // partners menu --------- */}
-              <div className="flex  flex-col overflow-hidden justify-start items-center  bg-transparent w-full">
+              <div className="flex min-h-max  flex-col overflow-hidden justify-start items-center  bg-transparent w-full">
                 <button
                   onClick={() => setTogglePartnerMenu((prev) => !prev)}
                   className="flex border-b border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold"
