@@ -103,7 +103,7 @@ const About = () => {
   return (
     <>
       <div className="flex lg:flex-row flex-col sm:pb-[60px] justify-start items-start  w-full">
-        <div className="flex mt-[60px] sm:mt-0 overflow-hidden relative lg:sticky top-0 bg-bodyBg aspect-square  max-h-[700px] lg:max-h-none lg:h-screen bg-cover bg-center justify-start items-center w-full lg:w-[calc(100%_-_206px)] 1440:w-[38.175%] ">
+        <div className="flex mt-[60px] sm:mt-0 overflow-hidden relative lg:sticky top-0 bg-bodyBg aspect-square  max-h-[700px] lg:max-h-none lg:h-screen bg-cover bg-center justify-start items-center w-full lg:w-[calc(100%_-_206px)] 1440:w-[68.175%] ">
           <img
             ref={img}
             src="/logo.png"
