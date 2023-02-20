@@ -1,10 +1,77 @@
+import { useEffect, useRef } from "react";
 import BottomHeader from "../../layout/BottomHeader";
 
 const About = () => {
+  const layer1 = useRef<HTMLDivElement>(null);
+  const layer2 = useRef<HTMLDivElement>(null);
+  const layer3 = useRef<HTMLDivElement>(null);
+  const layer4 = useRef<HTMLDivElement>(null);
+  const layer5 = useRef<HTMLDivElement>(null);
+  const layer6 = useRef<HTMLDivElement>(null);
+  const img = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    if (!layer1.current) return;
+    layer1.current.style.opacity = "1";
+    if (!layer2.current) return;
+    layer2.current.style.opacity = "1";
+    if (!layer3.current) return;
+    layer3.current.style.opacity = "1";
+    if (!layer4.current) return;
+    layer4.current.style.opacity = "1";
+    if (!layer5.current) return;
+    layer5.current.style.opacity = "1";
+    if (!layer6.current) return;
+    layer6.current.style.opacity = "1";
+    if (!img.current) return;
+    img.current.style.opacity = "1";
+    img.current.style.transform = "scale(1) translate(-50%,-50%)";
+  }, []);
+
   return (
     <>
       <div className="flex lg:flex-row flex-col sm:pb-[60px] justify-start items-start  w-full">
-        <div className="flex lg:sticky top-0 bg-bodyBg aspect-square min-h-[600px] max-h-[800px] lg:max-h-none lg:h-screen bg-cover bg-center justify-start items-center w-full lg:max-w-[450px] 2xl:-w-[745px]"></div>
+        <div className="flex mt-[60px] sm:mt-0 overflow-hidden relative lg:sticky top-0 bg-bodyBg aspect-square  max-h-[700px] lg:max-h-none lg:h-screen bg-cover bg-center justify-start items-center w-full lg:w-[calc(100%_-_206px)] 1440:w-[38.175%] ">
+          <img
+            ref={img}
+            src="/logo.png"
+            className="w-[60%] absolute object-contain left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-[0.5s] ease delay-[0.4s] z-10 opacity-0 scale-[1.2]"
+            alt=""
+          />
+          {/* layer 1 ------------------------------------ */}
+          <div
+            ref={layer1}
+            className="opacity-0 bg-aboutLayer1 bg-[#487500] absolute left-[53%] bottom-0 w-[49%] h-[73%] -skew-x-[20deg] -skew-y-[20deg] -translate-x-1/2 transition-all duration-[0.8s] ease-layers"
+          ></div>
+          {/* layer 2 ------------------------------------ */}
+          <div
+            ref={layer2}
+            className="opacity-0 bg-aboutLayer2 bg-[#7dcd00] absolute left-[43%] bottom-0 w-[49%] h-[65%] -skew-x-[20deg] -skew-y-[20deg] -translate-x-1/2 transition-all duration-[0.8s] ease-layers"
+          ></div>
+          {/* layer 3 ------------------------------------ */}
+          <div
+            ref={layer3}
+            className="opacity-0 bg-aboutLayer3 overflow-hidden bg-[#85da00] absolute left-[55%] bottom-0 w-[42%] h-full -skew-x-[20deg] -skew-y-[20deg] -translate-x-1/2 transition-all duration-[0.8s] ease-layers delay-[0.15s]"
+          >
+            <div className="absolute right-1/2 top-0 w-1/2 bottom-0 bg-[#ffffff66] mix-blend-overlay"></div>
+            <div className="absolute left-0 top-0 bottom-0 bg-hexagon -right-1/2 skew-x-[20deg] skew-y-[20deg] bg-no-repeat bg-center mix-blend-overlay"></div>
+            <div className="absolute left-1/2 top-0 w-[2px] h-[25%] bg-[#f3ff38]"></div>
+          </div>
+          {/* layer 4 ------------------------------------ */}
+          <div
+            ref={layer4}
+            className="opacity-0  bg-[#f3ff38] absolute left-[89%] top-[4%] w-[2px] h-[42%] -skew-x-[20deg] -skew-y-[20deg] -translate-x-1/2 transition-all duration-[0.8s] ease-layers delay-[0.15s]"
+          ></div>
+          {/* layer 5 ------------------------------------ */}
+          <div
+            ref={layer5}
+            className="opacity-0  bg-[#f3ff38] absolute left-[11%] bottom-0 w-[2px] h-[42%] -skew-x-[20deg] -skew-y-[20deg] -translate-x-1/2 transition-all duration-[0.8s] ease-layers delay-[0.15s]"
+          ></div>
+          {/* layer 6 ------------------------------------ */}
+          <div
+            ref={layer6}
+            className="opacity-0  bg-transparent bg-aboutLayer6 bg-[32px__32px] mix-blend-overlay absolute left-0 bottom-[13%]  w-[58%] h-[120px] clip "
+          ></div>
+        </div>
         <div className="flex py-[40px] sm:py-[95px] w-full px-5 sm:px-[50px] xl:px-[90px] 2xl:px-[120px] justify-start items-start flex-col gap-5 sm:gap-10">
           <h2 className="text-[1.8rem] sm:text-[2.5rem] xl:text-[4rem] uppercase font-bold text-tertiary">
             About Us

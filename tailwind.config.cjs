@@ -1,9 +1,13 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit",
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      transitionTimingFunction: {
+        layers: "cubic-bezier(.86,0,.07,1)",
+      },
       animation: {
         glitch1: "glitch 0.3s cubic-bezier(.25,.46,.45,.94) both infinite",
         glitch2:
@@ -45,8 +49,14 @@ module.exports = {
       backgroundImage: {
         bodyBg: "url('/body-bg.jpg')",
         map: "url('/map.svg')",
+        hexagon: "url('/hexagon-bg.png')",
+        aboutLayer1: "linear-gradient(#73bb00,#1d3000)",
+        aboutLayer2: "linear-gradient(#a0e700,#29a000)",
+        aboutLayer3: "linear-gradient(#e7f800,#24bd00)",
+        aboutLayer6: "radial-gradient(#fff 1px,transparent 0)",
       },
       screens: {
+        1440: "1440px",
         mid: "1180px",
       },
     },
