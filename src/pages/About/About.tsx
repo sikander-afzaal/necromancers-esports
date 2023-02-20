@@ -1,7 +1,13 @@
-import { useEffect, useRef } from "react";
+import { useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import BottomHeader from "../../layout/BottomHeader";
 
 const About = () => {
+  const container = useRef<HTMLDivElement>(null);
+  const isInView = useInView(container);
+  const [matchesVal, setMatchesVal] = useState(0);
+  const [trophies, setTrophies] = useState(0);
+  const [win, setWin] = useState(0);
   const layer1 = useRef<HTMLDivElement>(null);
   const layer2 = useRef<HTMLDivElement>(null);
   const layer3 = useRef<HTMLDivElement>(null);
@@ -46,6 +52,53 @@ const About = () => {
       img.current.style.transform = "scale(1.2) translate(-50%,-50%)";
     };
   }, []);
+  useEffect(() => {
+    if (!isInView) return;
+    const timeout = setTimeout(() => {
+      setMatchesVal((prev) => {
+        return (prev += 20);
+      });
+    }, 20);
+    if (matchesVal >= 980) {
+      clearTimeout(timeout);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [matchesVal, isInView]);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const timeout = setTimeout(() => {
+      setTrophies((prev) => {
+        return (prev += 2);
+      });
+    }, 20);
+    if (trophies >= 34) {
+      clearTimeout(timeout);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [trophies, isInView]);
+
+  useEffect(() => {
+    if (!isInView) return;
+    const timeout = setTimeout(() => {
+      setWin((prev) => {
+        return (prev += 0.5);
+      });
+    }, 5);
+    if (win >= 82.5) {
+      clearTimeout(timeout);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [win, isInView]);
 
   return (
     <>
@@ -156,7 +209,10 @@ const About = () => {
             vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
             sit aspernatur.
           </p>
-          <div className="flex sm:flex-row flex-col justify-start gap-6 sm:gap-16 xl:gap-28 items-start sm:items-center min-w-full">
+          <div
+            ref={container}
+            className="flex sm:flex-row flex-col justify-start gap-6 sm:gap-16 xl:gap-28 items-start sm:items-center min-w-full"
+          >
             <div className="flex justify-start items-center gap-5">
               <img
                 src="/controller-green.svg"
@@ -165,7 +221,7 @@ const About = () => {
               />
               <div className="flex items-start flex-col justify-start gap-1">
                 <h4 className="text-tertiary font-bold text-xl leading-[1]">
-                  979
+                  {matchesVal}
                 </h4>
                 <p className="text-info uppercase text-xl font-bold leading-[1]">
                   MATCHES
@@ -190,7 +246,7 @@ const About = () => {
 
               <div className="flex items-start flex-col justify-start gap-1">
                 <h4 className="text-tertiary font-bold text-xl leading-[1]">
-                  34
+                  {trophies}
                 </h4>
                 <p className="text-info uppercase text-xl font-bold leading-[1]">
                   Trophies
@@ -220,7 +276,7 @@ const About = () => {
 
               <div className="flex items-start flex-col justify-start gap-1">
                 <h4 className="text-tertiary font-bold text-xl leading-[1]">
-                  82.1
+                  {win}
                 </h4>
                 <p className="text-info uppercase text-xl font-bold leading-[1]">
                   Win Ratio
