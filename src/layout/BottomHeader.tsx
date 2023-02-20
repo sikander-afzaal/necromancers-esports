@@ -289,279 +289,271 @@ const BottomHeader = () => {
         <DropDownDesktop headerToggle={headerToggle} />
       </div>
       {/* //mobile drop down --------------------- */}
-      <div className="sm:hidden w-full block overflow-y-auto">
-        <AnimatePresence mode="wait">
-          {headerToggle && (
-            <motion.div
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              key={"mobile-menu"}
-              initial={{ translateY: -100, opacity: 0 }}
-              animate={{ translateY: 0, opacity: 1 }}
-              exit={{ translateY: -100, opacity: 0 }}
-              className="flex justify-start items-start flex-col w-full h-screen top-0 left-0 fixed pt-[102px] bg-dark z-[90] overflow-y-auto"
-            >
-              {/* //main pages menu --------- */}
-              <div className="flex min-h-max overflow-hidden flex-col justify-start items-center  bg-transparent w-full">
-                <button
-                  onClick={() => setTogglePagesMenu((prev) => !prev)}
-                  className="flex justify-between items-center w-full py-4 px-6 border-b border-solid border-[#242633] uppercase text-white text-sm font-bold"
-                >
-                  Main Links
-                  <FontAwesomeIcon
-                    className="text-primary text-xs"
-                    icon={togglePagesMenu ? faMinus : faPlus}
-                  />
-                </button>
-                <div
-                  className={`flex justify-start w-full ${
-                    togglePagesMenu ? "max-h-[90000px]" : "max-h-0"
-                  }  items-start flex-col transition-all duration-1000`}
-                >
-                  <MenuAccordianMobile
-                    btnText="Main Pages"
-                    links={[
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                    ]}
-                    setHeader={setHeaderToggle}
-                  />
-                  <MenuAccordianMobile
-                    btnText="Team Pages"
-                    links={[
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                    ]}
-                    setHeader={setHeaderToggle}
-                  />
-                  <MenuAccordianMobile
-                    btnText="Player Pages"
-                    links={[
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                    ]}
-                    setHeader={setHeaderToggle}
-                  />
-                  <MenuAccordianMobile
-                    btnText="Match Pages"
-                    links={[
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                    ]}
-                    setHeader={setHeaderToggle}
-                  />
-                  <MenuAccordianMobile
-                    btnText="Shop Pages"
-                    links={[
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                      { name: "Landing Page", url: "#" },
-                    ]}
-                    setHeader={setHeaderToggle}
-                  />
-                </div>
+      <AnimatePresence mode="wait">
+        {headerToggle && (
+          <motion.div
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            key={"mobile-menu"}
+            initial={{ translateY: -100, opacity: 0 }}
+            animate={{ translateY: 0, opacity: 1 }}
+            exit={{ translateY: -100, opacity: 0 }}
+            className="flex sm:hidden justify-start items-start flex-col w-full h-screen top-0 left-0 fixed pt-[102px] bg-dark z-[90] overflow-y-auto"
+          >
+            {/* //main pages menu --------- */}
+            <div className="flex min-h-max  flex-col justify-start items-center  bg-transparent w-full">
+              <button
+                onClick={() => setTogglePagesMenu((prev) => !prev)}
+                className="flex min-h-[53px] justify-between items-center w-full py-4 px-6 border-b border-solid border-[#242633] uppercase text-white text-sm font-bold"
+              >
+                Main Links
+                <FontAwesomeIcon
+                  className="text-primary text-xs"
+                  icon={togglePagesMenu ? faMinus : faPlus}
+                />
+              </button>
+              <div
+                className={`flex justify-start h-full w-full ${
+                  togglePagesMenu ? "max-h-[90000px]" : "max-h-0"
+                }  items-start flex-col transition-all duration-1000`}
+              >
+                <MenuAccordianMobile
+                  btnText="Main Pages"
+                  links={[
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                  ]}
+                  setHeader={setHeaderToggle}
+                />
+                <MenuAccordianMobile
+                  btnText="Team Pages"
+                  links={[
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                  ]}
+                  setHeader={setHeaderToggle}
+                />
+                <MenuAccordianMobile
+                  btnText="Player Pages"
+                  links={[
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                  ]}
+                  setHeader={setHeaderToggle}
+                />
+                <MenuAccordianMobile
+                  btnText="Match Pages"
+                  links={[
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                  ]}
+                  setHeader={setHeaderToggle}
+                />
+                <MenuAccordianMobile
+                  btnText="Shop Pages"
+                  links={[
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                    { name: "Landing Page", url: "#" },
+                  ]}
+                  setHeader={setHeaderToggle}
+                />
               </div>
-              {/* // social links menu --------- */}
-              <div className="flex min-h-max  flex-col overflow-hidden justify-start items-center  bg-transparent w-full">
-                <button
-                  onClick={() => setToggleSocialMenu((prev) => !prev)}
-                  className="flex border-b border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold"
+            </div>
+            {/* // social links menu --------- */}
+            <div className="flex min-h-max flex-col h-max justify-start items-center  bg-transparent w-full">
+              <button
+                onClick={() => setToggleSocialMenu((prev) => !prev)}
+                className="flex min-h-[53px] border-b border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold"
+              >
+                Social Links{" "}
+                <FontAwesomeIcon
+                  className="text-primary text-xs"
+                  icon={toggleSocialMenu ? faMinus : faPlus}
+                />
+              </button>
+              <div
+                className={`flex w-full justify-start items-start min-h-max transition-all duration-1000 flex-col ${
+                  toggleSocialMenu ? "max-h-[9000px]" : "max-h-0"
+                }`}
+              >
+                <a
+                  href="#"
+                  target={"blank"}
+                  className="flex justify-start gap-4 min-h-[53px] items-center bg-dark w-full py-4 px-6  uppercase text-white text-sm font-bold border-b border-solid border-[#242633]"
                 >
-                  Social Links{" "}
                   <FontAwesomeIcon
-                    className="text-primary text-xs"
-                    icon={toggleSocialMenu ? faMinus : faPlus}
+                    icon={faFacebookF}
+                    className="text-sm text-[#224bc0]"
                   />
-                </button>
-                <div
-                  className={`flex w-full justify-start items-start transition-all duration-1000 flex-col ${
-                    toggleSocialMenu ? "max-h-[9000px]" : "max-h-0"
-                  }`}
+                  Facebook
+                </a>
+                <a
+                  href="#"
+                  target={"blank"}
+                  className="flex justify-start min-h-[53px] gap-4 items-center bg-dark w-full py-4 px-6  uppercase text-white text-sm font-bold border-b border-solid border-[#242633]"
                 >
-                  <a
-                    href="#"
-                    target={"blank"}
-                    className="flex justify-start gap-4 items-center bg-dark w-full py-4 px-6  uppercase text-white text-sm font-bold border-b border-solid border-[#242633]"
-                  >
-                    <FontAwesomeIcon
-                      icon={faFacebookF}
-                      className="text-sm text-[#224bc0]"
-                    />
-                    Facebook
-                  </a>
-                  <a
-                    href="#"
-                    target={"blank"}
-                    className="flex justify-start gap-4 items-center bg-dark w-full py-4 px-6  uppercase text-white text-sm font-bold border-b border-solid border-[#242633]"
-                  >
-                    <FontAwesomeIcon
-                      icon={faTwitter}
-                      className="text-sm text-[#09aafe]"
-                    />
-                    Twitter
-                  </a>
-                  <a
-                    href="#"
-                    target={"blank"}
-                    className="flex justify-start gap-4 items-center bg-dark w-full py-4 px-6  uppercase text-white text-sm font-bold border-b border-solid border-[#242633]"
-                  >
-                    <FontAwesomeIcon
-                      icon={faTwitch}
-                      className="text-sm text-[#5e22e4]"
-                    />
-                    Twitch
-                  </a>
-                  <a
-                    href="#"
-                    target={"blank"}
-                    className="flex justify-start gap-4 items-center bg-dark w-full py-4 px-6  uppercase text-white text-sm font-bold border-b border-solid border-[#242633]"
-                  >
-                    <FontAwesomeIcon
-                      icon={faDiscord}
-                      className="text-sm text-[#7289da]"
-                    />
-                    Discord
-                  </a>
-                </div>
-              </div>
-              {/* // contact menu --------- */}
-              <div className="flex min-h-max  flex-col overflow-hidden justify-start items-center  bg-transparent w-full">
-                <button
-                  onClick={() => setToggleContactMenu((prev) => !prev)}
-                  className="flex border-b border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold"
-                >
-                  Get In Touch!{" "}
                   <FontAwesomeIcon
-                    className="text-primary text-xs"
-                    icon={toggleContactMenu ? faMinus : faPlus}
+                    icon={faTwitter}
+                    className="text-sm text-[#09aafe]"
                   />
-                </button>
-                <div
-                  className={`flex w-full justify-start items-start transition-all duration-1000 flex-col ${
-                    toggleContactMenu ? "max-h-[9000px]" : "max-h-0"
-                  }`}
+                  Twitter
+                </a>
+                <a
+                  href="#"
+                  target={"blank"}
+                  className="flex justify-start min-h-[53px] gap-4 items-center bg-dark w-full py-4 px-6  uppercase text-white text-sm font-bold border-b border-solid border-[#242633]"
                 >
-                  <a
-                    className="flex justify-start border-b border-solid border-[#242633] py-4 px-6 items-start flex-col gap-0  text-white uppercase font-bold text-xs hover:opacity-50 transition-all duration-300 w-full"
-                    href="mailto:MP-RECRUIT@NECROMANCERS.COM"
-                  >
-                    <span className="text-secondary uppercase text-[0.675rem] leading-[0] mb-1">
-                      Max parker - recruiter
-                    </span>
-                    <span>
-                      MP-RECRUIT<span className="text-primary">@</span>
-                      NECROMANCERS.COM
-                    </span>
-                  </a>
-                  <a
-                    className="flex justify-start border-b border-solid w-full border-[#242633] py-4 px-6 items-start flex-col gap-0  text-white uppercase font-bold text-xs hover:opacity-50 transition-all duration-300"
-                    href="mailto:MP-RECRUIT@NECROMANCERS.COM"
-                  >
-                    <span className="text-secondary uppercase text-[0.675rem] leading-[0] mb-1">
-                      Max parker - recruiter
-                    </span>
-                    <span>
-                      MP-RECRUIT<span className="text-primary">@</span>
-                      NECROMANCERS.COM
-                    </span>
-                  </a>
-                  <a
-                    className="flex justify-start py-4 border-b border-solid border-[#242633] w-full px-6 items-start flex-col gap-0  text-white uppercase font-bold text-xs hover:opacity-50 transition-all duration-300"
-                    href="mailto:MP-RECRUIT@NECROMANCERS.COM"
-                  >
-                    <span className="text-secondary uppercase text-[0.675rem] leading-[0] mb-1">
-                      Max parker - recruiter
-                    </span>
-                    <span>
-                      MP-RECRUIT<span className="text-primary">@</span>
-                      NECROMANCERS.COM
-                    </span>
-                  </a>
-                </div>
-              </div>
-              {/* // partners menu --------- */}
-              <div className="flex min-h-max  flex-col overflow-hidden justify-start items-center  bg-transparent w-full">
-                <button
-                  onClick={() => setTogglePartnerMenu((prev) => !prev)}
-                  className="flex border-b border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold"
-                >
-                  Our partners{" "}
                   <FontAwesomeIcon
-                    className="text-primary text-xs"
-                    icon={togglePartnerMenu ? faMinus : faPlus}
+                    icon={faTwitch}
+                    className="text-sm text-[#5e22e4]"
                   />
-                </button>
-                <div
-                  className={`flex bg-dark w-full justify-start items-start transition-all duration-1000 flex-col ${
-                    togglePartnerMenu ? "max-h-[9000px]" : "max-h-0"
-                  }`}
+                  Twitch
+                </a>
+                <a
+                  href="#"
+                  target={"blank"}
+                  className="flex justify-start min-h-[53px] gap-4 items-center bg-dark w-full py-4 px-6  uppercase text-white text-sm font-bold border-b border-solid border-[#242633]"
                 >
-                  <div className="w-full py-6 px-4">
-                    <Splide
-                      options={{
-                        autoplay: true,
-                        width: "100%",
-                        gap: "0rem",
-                        perPage: 1,
-                        type: "loop",
-                        arrows: true,
-                        pagination: false,
-                      }}
-                      hasTrack={false}
-                      aria-label="..."
-                    >
-                      <SplideTrack>
-                        <SplideSlide>
-                          <img className="mx-auto" src="/partner.png" alt="" />
-                        </SplideSlide>
-                      </SplideTrack>
-                      <div className="splide__arrows w-full absolute top-1/2 -translate-y-1/2 left-0 flex justify-between items-center gap-2">
-                        <button className="splide__arrow splide__arrow--prev static opacity-100 translate-y-0 bg-transparent">
-                          <FontAwesomeIcon
-                            icon={faChevronRight}
-                            className="text-white text-xs"
-                          />
-                        </button>
-                        <button className="splide__arrow splide__arrow--next static opacity-100 bg-transparent translate-y-0">
-                          <FontAwesomeIcon
-                            icon={faChevronRight}
-                            className="text-white text-xs"
-                          />
-                        </button>
-                      </div>
-                    </Splide>
-                  </div>
-                </div>
+                  <FontAwesomeIcon
+                    icon={faDiscord}
+                    className="text-sm text-[#7289da]"
+                  />
+                  Discord
+                </a>
               </div>
+            </div>
+            {/* // contact menu --------- */}
+            <div className="flex min-h-max  flex-col  justify-start items-center  bg-transparent w-full">
+              <button
+                onClick={() => setToggleContactMenu((prev) => !prev)}
+                className="flex border-b min-h-[53px] border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold"
+              >
+                Get In Touch!{" "}
+                <FontAwesomeIcon
+                  className="text-primary text-xs"
+                  icon={toggleContactMenu ? faMinus : faPlus}
+                />
+              </button>
+              <div
+                className={`flex w-full justify-start h-full items-start transition-all duration-1000 flex-col ${
+                  toggleContactMenu ? "max-h-[9000px]" : "max-h-0"
+                }`}
+              >
+                <a
+                  className="flex justify-start min-h-[53px] border-b border-solid border-[#242633] py-4 px-6 items-start flex-col gap-0  text-white uppercase font-bold text-xs hover:opacity-50 transition-all duration-300 w-full"
+                  href="mailto:MP-RECRUIT@NECROMANCERS.COM"
+                >
+                  <span className="text-secondary uppercase text-[0.675rem] leading-[0] mb-1">
+                    Max parker - recruiter
+                  </span>
+                  <span>
+                    MP-RECRUIT<span className="text-primary">@</span>
+                    NECROMANCERS.COM
+                  </span>
+                </a>
+                <a
+                  className="flex justify-start min-h-[53px] border-b border-solid w-full border-[#242633] py-4 px-6 items-start flex-col gap-0  text-white uppercase font-bold text-xs hover:opacity-50 transition-all duration-300"
+                  href="mailto:MP-RECRUIT@NECROMANCERS.COM"
+                >
+                  <span className="text-secondary uppercase text-[0.675rem] leading-[0] mb-1">
+                    Max parker - recruiter
+                  </span>
+                  <span>
+                    MP-RECRUIT<span className="text-primary">@</span>
+                    NECROMANCERS.COM
+                  </span>
+                </a>
+                <a
+                  className="flex justify-start min-h-[53px] py-4 border-b border-solid border-[#242633] w-full px-6 items-start flex-col gap-0  text-white uppercase font-bold text-xs hover:opacity-50 transition-all duration-300"
+                  href="mailto:MP-RECRUIT@NECROMANCERS.COM"
+                >
+                  <span className="text-secondary uppercase text-[0.675rem] leading-[0] mb-1">
+                    Max parker - recruiter
+                  </span>
+                  <span>
+                    MP-RECRUIT<span className="text-primary">@</span>
+                    NECROMANCERS.COM
+                  </span>
+                </a>
+              </div>
+            </div>
+            {/* // partners menu --------- */}
+            <div className="flex min-h-max  flex-col justify-start items-center  bg-transparent w-full">
               <button
                 onClick={() => setTogglePartnerMenu((prev) => !prev)}
-                className="flex border-b border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold"
+                className="flex border-b min-h-[53px] border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold"
               >
-                Account Settings{" "}
+                Our partners{" "}
+                <FontAwesomeIcon
+                  className="text-primary text-xs"
+                  icon={togglePartnerMenu ? faMinus : faPlus}
+                />
               </button>
-              <button
-                onClick={() => setTogglePartnerMenu((prev) => !prev)}
-                className="flex border-b border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold"
+              <div
+                className={`flex bg-dark w-full overflow-hidden h-full justify-start items-start transition-all duration-1000 flex-col ${
+                  togglePartnerMenu ? "max-h-[9000px]" : "max-h-0"
+                }`}
               >
-                Logout{" "}
-              </button>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+                <div className="w-full py-6 px-4">
+                  <Splide
+                    options={{
+                      autoplay: true,
+                      width: "100%",
+                      gap: "0rem",
+                      perPage: 1,
+                      type: "loop",
+                      arrows: true,
+                      pagination: false,
+                    }}
+                    hasTrack={false}
+                    aria-label="..."
+                  >
+                    <SplideTrack>
+                      <SplideSlide>
+                        <img className="mx-auto" src="/partner.png" alt="" />
+                      </SplideSlide>
+                    </SplideTrack>
+                    <div className="splide__arrows w-full absolute top-1/2 -translate-y-1/2 left-0 flex justify-between items-center gap-2">
+                      <button className="splide__arrow splide__arrow--prev static opacity-100 translate-y-0 bg-transparent">
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="text-white text-xs"
+                        />
+                      </button>
+                      <button className="splide__arrow splide__arrow--next static opacity-100 bg-transparent translate-y-0">
+                        <FontAwesomeIcon
+                          icon={faChevronRight}
+                          className="text-white text-xs"
+                        />
+                      </button>
+                    </div>
+                  </Splide>
+                </div>
+              </div>
+            </div>
+            <button className="flex border-b min-h-[53px] border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold">
+              Account Settings{" "}
+            </button>
+            <button className="flex border-b min-h-[53px] border-solid border-[#242633] justify-between items-center bg-dark w-full py-4 px-6  uppercase text-white text-xs font-bold">
+              Logout{" "}
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
