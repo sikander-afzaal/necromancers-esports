@@ -1,5 +1,7 @@
 import { useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useEffect, useRef, useState, useLayoutEffect } from "react";
 import BottomHeader from "../../layout/BottomHeader";
 
 const About = () => {
@@ -15,6 +17,14 @@ const About = () => {
   const layer5 = useRef<HTMLDivElement>(null);
   const layer6 = useRef<HTMLDivElement>(null);
   const img = useRef<HTMLImageElement>(null);
+  // ---gsap refs ---------------------------------------------
+  const mapImage = useRef<HTMLDivElement>(null);
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const whyContainer = useRef<HTMLDivElement>(null);
+  const whyCont1 = useRef<HTMLDivElement>(null);
+  const whyCont2 = useRef<HTMLDivElement>(null);
+  const whyCont3 = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     setTimeout(() => {
       if (!layer1.current) return;
@@ -100,6 +110,56 @@ const About = () => {
     };
   }, [win, isInView]);
 
+  // ---gsap --------------------------------------------------------------
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const contextMap = gsap.context(() => {
+      gsap.to(mapImage.current, {
+        scrollTrigger: {
+          trigger: mapContainer.current,
+          start: "top 50%",
+          end: "+=700px",
+          scrub: true,
+          // markers: true,
+        },
+        scale: 1,
+      });
+    }, mapImage);
+    let mm = gsap.matchMedia();
+
+    // add a media query. When it matches, the associated function will run
+    mm.add("(min-width: 640px)", () => {
+      const contextWhy = gsap.context(() => {
+        const timeline = gsap.timeline({
+          defaults: { duration: 1 },
+          scrollTrigger: {
+            trigger: mapContainer.current,
+            start: "bottom 50%",
+            end: "bottom top",
+            scrub: 3,
+            // markers: true,
+          },
+        });
+        timeline
+          .fromTo(
+            whyCont1.current,
+            { x: -300, opacity: 0 },
+            { x: 0, opacity: 1 }
+          )
+          .fromTo(
+            whyCont2.current,
+            { x: -200, opacity: 0 },
+            { x: 0, opacity: 1 }
+          )
+          .fromTo(
+            whyCont3.current,
+            { x: -100, opacity: 0 },
+            { x: 0, opacity: 1 }
+          );
+      }, mapImage);
+    });
+  }, []);
+
   return (
     <>
       <div className="flex lg:flex-row flex-col sm:pb-[60px] justify-start items-start  w-full">
@@ -156,8 +216,14 @@ const About = () => {
             ut aliquip.
           </p>
           {/* //map ------------ */}
-          <div className="relative sm:my-0 my-6 w-full max-w-[920px] isolate pb-[53.2%]">
-            <div className="absolute bg-map bg-center bg-contain bg-no-repeat opacity-40 left-0 top-0 w-full h-full -z-10"></div>
+          <div
+            ref={mapContainer}
+            className="relative sm:my-0  my-6 w-full max-w-[920px] isolate pb-[53.2%]"
+          >
+            <div
+              ref={mapImage}
+              className="absolute scale-0 bg-map bg-center bg-contain bg-no-repeat opacity-40 left-0 top-0 w-full h-full -z-10"
+            ></div>
             <div className="absolute flex justify-start gap-2 bottom-[58%] left-[26%] items-start flex-col  z-10">
               <div className="flex justify-start items-center gap-2">
                 <img
@@ -213,7 +279,10 @@ const About = () => {
             ref={container}
             className="flex sm:flex-row flex-col justify-start gap-6 sm:gap-16 xl:gap-28 items-start sm:items-center min-w-full"
           >
-            <div className="flex justify-start items-center gap-5">
+            <div
+              ref={whyCont1}
+              className="flex justify-start items-center gap-5"
+            >
               <img
                 src="/controller-green.svg"
                 className="w-[30px] object-contain aspect-square"
@@ -228,7 +297,10 @@ const About = () => {
                 </p>
               </div>
             </div>
-            <div className="flex justify-start items-center gap-5">
+            <div
+              ref={whyCont2}
+              className="flex justify-start items-center gap-5"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -253,7 +325,10 @@ const About = () => {
                 </p>
               </div>
             </div>
-            <div className="flex justify-start items-center gap-5">
+            <div
+              ref={whyCont3}
+              className="flex justify-start items-center gap-5"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
