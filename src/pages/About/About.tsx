@@ -114,13 +114,29 @@ const About = () => {
   // ---gsap --------------------------------------------------------------
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-
+    let ctx = gsap.context(() => {
+      const time2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: mainCont.current,
+          start: window.innerWidth > 640 ? "top top" : "top 100px",
+          end:
+            window.innerWidth > 1024
+              ? `+=${window.innerHeight * 0.7}px`
+              : `+=${window.innerHeight * 0.4}px`,
+          scrub: 2,
+          pin: true,
+          anticipatePin: 1,
+          markers: true,
+        },
+      });
+      time2.to(heading.current, { marginBottom: 0 });
+    }, heading);
     const contextMap = gsap.context(() => {
       gsap.to(mapImage.current, {
         scrollTrigger: {
           trigger: mapContainer.current,
-          start: "top 50%",
-          end: "+=800px",
+          start: "top 70%",
+          end: window.innerWidth > 640 ? "+=800px" : "+=300px",
           scrub: 2,
           // markers: true,
         },
@@ -162,6 +178,7 @@ const About = () => {
     });
     return () => {
       contextMap.revert();
+      ctx.revert();
     };
   }, []);
 
@@ -211,14 +228,16 @@ const About = () => {
           ></div>
         </div>
         <div className="flex pb-[40px] sm:pb-[95px] w-full px-5 sm:px-[50px] xl:px-[90px] 2xl:px-[120px] justify-start items-start flex-col gap-5 sm:gap-10">
-          <h2
-            ref={heading}
-            className="text-[1.8rem]   mt-5 w-full leading-[1]  text-center sm:text-[2.5rem] xl:text-[4rem] uppercase font-bold text-tertiary"
-          >
-            About Us
-          </h2>
+          <div ref={mainCont} className="w-full">
+            <h2
+              ref={heading}
+              className=" mb-[40vh] lg:mb-[70vh]  mt-5 w-full leading-[1]  text-center  text-[4rem] uppercase font-bold text-tertiary"
+            >
+              About Us
+            </h2>
+          </div>
 
-          <p className="text-tertiary  text-xl text-center">
+          <p className="text-tertiary -mt-8  text-xl text-center">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim en veniam, quis nostrud exercitation ullamco laboris nisi
