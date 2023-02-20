@@ -5,7 +5,7 @@ const About = () => {
     <>
       <div className="flex lg:flex-row flex-col sm:pb-[60px] justify-start items-start  w-full">
         <div className="flex lg:sticky top-0 bg-bodyBg aspect-square min-h-[600px] max-h-[800px] lg:max-h-none lg:h-screen bg-cover bg-center justify-start items-center w-full lg:max-w-[450px] 2xl:-w-[745px]"></div>
-        <div className="flex py-[40px] sm:py-[95px] w-full px-5 sm:px-[50px] xl:px-[90px] 2xl:px-[120px] justify-start items-start flex-col gap-10">
+        <div className="flex py-[40px] sm:py-[95px] w-full px-5 sm:px-[50px] xl:px-[90px] 2xl:px-[120px] justify-start items-start flex-col gap-5 sm:gap-10">
           <h2 className="text-[1.8rem] sm:text-[2.5rem] xl:text-[4rem] uppercase font-bold text-tertiary">
             About Us
           </h2>
@@ -15,6 +15,50 @@ const About = () => {
             ad minim en veniam, quis nostrud exercitation ullamco laboris nisi
             ut aliquip.
           </p>
+          {/* //map ------------ */}
+          <div className="relative sm:my-0 my-6 w-full max-w-[920px] isolate pb-[53.2%]">
+            <div className="absolute bg-map bg-center bg-contain bg-no-repeat opacity-40 left-0 top-0 w-full h-full -z-10"></div>
+            <div className="absolute flex justify-start gap-2 bottom-[58%] left-[26%] items-start flex-col  z-10">
+              <div className="flex justify-start items-center gap-2">
+                <img
+                  src="/logo.png"
+                  className="object-contain w-[22px] sm:w-[32px]"
+                  alt=""
+                />
+                <div className="flex justify-start items-start flex-col">
+                  <p className="uppercase text-tertiary text-sm sm:text-xl font-bold leading-[1]">
+                    NECROMANCERS
+                  </p>
+                  <p className="uppercase text-info text-[10px] sm:text-sm font-bold leading-[1]">
+                    United States
+                  </p>
+                </div>
+              </div>
+              <div className="relative w-[20px] sm:w-[30px] aspect-square rounded-full bg-tertiary flex justify-center items-center">
+                <div className="bg-primary w-[8px] sm:w-[12px] aspect-square rounded-full"></div>
+              </div>
+            </div>
+            <div className="absolute flex justify-start gap-2 bottom-[25%] right-[12%] items-end flex-col  z-10">
+              <div className="flex justify-start items-center gap-2">
+                <div className="flex justify-start items-end flex-col">
+                  <p className="uppercase text-tertiary text-sm sm:text-xl font-bold leading-[1]">
+                    NECROMANCERS
+                  </p>
+                  <p className="uppercase text-info text-[10px] sm:text-sm font-bold leading-[1]">
+                    Australia (SOON!)
+                  </p>
+                </div>
+                <img
+                  src="/logo.png"
+                  className="object-contain w-[22px] sm:w-[32px]"
+                  alt=""
+                />
+              </div>
+              <div className="relative w-[20px] sm:w-[30px] aspect-square rounded-full bg-tertiary flex justify-center items-center">
+                <div className="bg-primary w-[8px] sm:w-[12px] aspect-square rounded-full"></div>
+              </div>
+            </div>
+          </div>
           <h2 className="text-[1.8rem] sm:text-[2.5rem] xl:text-[4rem] uppercase font-bold text-tertiary">
             WHY NECROMANCERS?
           </h2>

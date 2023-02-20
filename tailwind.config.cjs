@@ -44,6 +44,7 @@ module.exports = {
       },
       backgroundImage: {
         bodyBg: "url('/body-bg.jpg')",
+        map: "url('/map.svg')",
       },
       screens: {
         mid: "1180px",
