@@ -10,21 +10,41 @@ const About = () => {
   const layer6 = useRef<HTMLDivElement>(null);
   const img = useRef<HTMLImageElement>(null);
   useEffect(() => {
-    if (!layer1.current) return;
-    layer1.current.style.opacity = "1";
-    if (!layer2.current) return;
-    layer2.current.style.opacity = "1";
-    if (!layer3.current) return;
-    layer3.current.style.opacity = "1";
-    if (!layer4.current) return;
-    layer4.current.style.opacity = "1";
-    if (!layer5.current) return;
-    layer5.current.style.opacity = "1";
-    if (!layer6.current) return;
-    layer6.current.style.opacity = "1";
-    if (!img.current) return;
-    img.current.style.opacity = "1";
-    img.current.style.transform = "scale(1) translate(-50%,-50%)";
+    setTimeout(() => {
+      if (!layer1.current) return;
+      layer1.current.style.opacity = "1";
+      if (!layer2.current) return;
+      layer2.current.style.opacity = "1";
+      if (!layer3.current) return;
+      layer3.current.style.opacity = "1";
+      if (!layer4.current) return;
+      layer4.current.style.opacity = "1";
+      if (!layer5.current) return;
+      layer5.current.style.opacity = "1";
+      if (!layer6.current) return;
+      layer6.current.style.opacity = "1";
+      if (!img.current) return;
+      img.current.style.opacity = "1";
+      img.current.style.transform = "scale(1) translate(-50%,-50%)";
+    }, 700);
+
+    return () => {
+      if (!layer1.current) return;
+      layer1.current.style.opacity = "0";
+      if (!layer2.current) return;
+      layer2.current.style.opacity = "0";
+      if (!layer3.current) return;
+      layer3.current.style.opacity = "0";
+      if (!layer4.current) return;
+      layer4.current.style.opacity = "0";
+      if (!layer5.current) return;
+      layer5.current.style.opacity = "0";
+      if (!layer6.current) return;
+      layer6.current.style.opacity = "0";
+      if (!img.current) return;
+      img.current.style.opacity = "0";
+      img.current.style.transform = "scale(1.2) translate(-50%,-50%)";
+    };
   }, []);
 
   return (
