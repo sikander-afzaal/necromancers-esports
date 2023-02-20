@@ -18,9 +18,10 @@ const About = () => {
   const layer6 = useRef<HTMLDivElement>(null);
   const img = useRef<HTMLImageElement>(null);
   // ---gsap refs ---------------------------------------------
+  const heading = useRef<HTMLDivElement>(null);
+  const mainCont = useRef<HTMLDivElement>(null);
   const mapImage = useRef<HTMLDivElement>(null);
   const mapContainer = useRef<HTMLDivElement>(null);
-  const whyContainer = useRef<HTMLDivElement>(null);
   const whyCont1 = useRef<HTMLDivElement>(null);
   const whyCont2 = useRef<HTMLDivElement>(null);
   const whyCont3 = useRef<HTMLDivElement>(null);
@@ -113,13 +114,14 @@ const About = () => {
   // ---gsap --------------------------------------------------------------
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
     const contextMap = gsap.context(() => {
       gsap.to(mapImage.current, {
         scrollTrigger: {
           trigger: mapContainer.current,
           start: "top 50%",
-          end: "+=700px",
-          scrub: true,
+          end: "+=800px",
+          scrub: 2,
           // markers: true,
         },
         scale: 1,
@@ -134,9 +136,9 @@ const About = () => {
           defaults: { duration: 1 },
           scrollTrigger: {
             trigger: mapContainer.current,
-            start: "bottom 50%",
+            start: "bottom 40%",
             end: "bottom top",
-            scrub: 3,
+            scrub: 2,
             // markers: true,
           },
         });
@@ -158,6 +160,9 @@ const About = () => {
           );
       }, mapImage);
     });
+    return () => {
+      contextMap.revert();
+    };
   }, []);
 
   return (
@@ -205,11 +210,15 @@ const About = () => {
             className="opacity-0  bg-transparent bg-aboutLayer6 bg-[32px__32px] mix-blend-overlay absolute left-0 bottom-[13%]  w-[58%] h-[120px] clip "
           ></div>
         </div>
-        <div className="flex py-[40px] sm:py-[95px] w-full px-5 sm:px-[50px] xl:px-[90px] 2xl:px-[120px] justify-start items-start flex-col gap-5 sm:gap-10">
-          <h2 className="text-[1.8rem] sm:text-[2.5rem] xl:text-[4rem] uppercase font-bold text-tertiary">
+        <div className="flex pb-[40px] sm:pb-[95px] w-full px-5 sm:px-[50px] xl:px-[90px] 2xl:px-[120px] justify-start items-start flex-col gap-5 sm:gap-10">
+          <h2
+            ref={heading}
+            className="text-[1.8rem]   mt-5 w-full leading-[1]  text-center sm:text-[2.5rem] xl:text-[4rem] uppercase font-bold text-tertiary"
+          >
             About Us
           </h2>
-          <p className="text-tertiary text-xl">
+
+          <p className="text-tertiary  text-xl text-center">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim en veniam, quis nostrud exercitation ullamco laboris nisi
