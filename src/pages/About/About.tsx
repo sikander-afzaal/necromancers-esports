@@ -126,7 +126,7 @@ const About = () => {
           scrub: 2,
           pin: true,
           anticipatePin: 1,
-          markers: true,
+          // markers: true,
         },
       });
       time2.to(heading.current, { marginBottom: 0 });
