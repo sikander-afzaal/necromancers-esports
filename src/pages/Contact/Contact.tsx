@@ -5,11 +5,15 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useLayoutEffect, useRef, useState } from "react";
 import InputBox from "../../components/InputBox";
 import BottomHeader from "../../layout/BottomHeader";
 
 const Contact = () => {
+  const heading = useRef<HTMLDivElement>(null);
+  const mainCont = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,10 +34,35 @@ const Contact = () => {
   const submitHandler = (e: React.FormEvent): void => {
     e.preventDefault();
   };
+  // ---------------gsap--------------------------------------------
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    let ctx = gsap.context(() => {
+      const time2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: mainCont.current,
+          start: window.innerWidth > 640 ? "top top" : "top 100px",
+          end:
+            window.innerWidth > 1024
+              ? `+=${window.innerHeight * 0.6}px`
+              : `+=${window.innerHeight * 0.4}px`,
+          scrub: 2,
+          pin: true,
+          anticipatePin: 1,
+          // markers: true,
+        },
+      });
+      time2.to(heading.current, { marginBottom: 0 });
+    }, heading);
+
+    return () => {
+      ctx.revert();
+    };
+  }, []);
 
   return (
     <>
-      <div className="flex pt-[70px] sm:pt-0 sm:pb-[50px] lg:flex-row flex-col-reverse gap-8 lg:gap-0 w-full justify-start items-start">
+      <div className="flex  sm:pb-[50px] lg:flex-row flex-col-reverse gap-8 lg:gap-0 w-full justify-start items-start">
         <div className="w-full lg:sticky flex justify-start items-start top-0 lg:min-h-screen">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1511.0945291570047!2d-73.97949619999999!3d40.75786635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c258fedd6dd4e1%3A0xa800943585f6e146!2sDiamond%20District%2C%20New%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1676738655819!5m2!1sen!2s"
@@ -42,10 +71,15 @@ const Contact = () => {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <div className="flex min-h-screen px-5 sm:px-10 xl:px-[70px] 2xl:px-[120px] py-8 lg:py-[95px] justify-start items-start flex-col gap-5 w-full">
-          <h2 className="text-[2.5rem] lg:text-[4rem] mb-[30px] lg:mb-[70px] uppercase font-bold text-tertiary">
-            Contact Us
-          </h2>
+        <div className="flex min-h-screen px-5 sm:px-10 xl:px-[70px] 2xl:px-[120px] pb-8 lg:pb-[95px] justify-start items-start flex-col gap-5 w-full">
+          <div ref={mainCont} className="w-full ">
+            <h2
+              ref={heading}
+              className="text-[2.5rem] lg:text-[4rem] leading-[1] mb-[40vh] lg:mb-[60vh]  sm:mt-5 uppercase font-bold text-tertiary"
+            >
+              Contact Us
+            </h2>
+          </div>
           <div className="flex justify-start items-start flex-col w-full gap-7 lg:gap-8">
             <h3 className="text-tertiary uppercase font-bold text-[1.75rem]">
               Contact Info
