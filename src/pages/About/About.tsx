@@ -231,13 +231,13 @@ const About = () => {
           <div ref={mainCont} className="w-full">
             <h2
               ref={heading}
-              className=" mb-[40vh] lg:mb-[70vh]  mt-5 w-full leading-[1]  text-center  text-[4rem] uppercase font-bold text-tertiary"
+              className=" mb-[40vh] lg:mb-[70vh]  mt-5 w-full leading-[1]  text-center text-[4rem] xl:text-[7rem] uppercase font-bold text-tertiary"
             >
               About Us
             </h2>
           </div>
 
-          <p className="text-tertiary -mt-8  text-xl text-center">
+          <p className="text-tertiary -mt-8 text-xl xl:text-2xl text-center">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim en veniam, quis nostrud exercitation ullamco laboris nisi
@@ -387,7 +387,7 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="relative max-w-[675px]  mt-5 sm:mt-10 isolate w-full">
+          <div className="relative   mt-5 sm:mt-10 isolate w-full">
             <img src="/about.jpg" className="w-full  max-h-[515px]" alt="" />
             <svg
               xmlns="http://www.w3.org/2000/svg"

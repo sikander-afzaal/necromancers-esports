@@ -75,16 +75,16 @@ const Contact = () => {
           <div ref={mainCont} className="w-full ">
             <h2
               ref={heading}
-              className="text-[2.5rem] lg:text-[4rem] leading-[1] mb-[40vh] lg:mb-[60vh]  sm:mt-5 uppercase font-bold text-tertiary"
+              className=" text-[3.2rem] xl:text-[7rem] leading-[1] mb-[40vh] lg:mb-[60vh]  sm:mt-5 uppercase font-bold text-tertiary"
             >
               Contact Us
             </h2>
           </div>
           <div className="flex justify-start items-start flex-col w-full gap-7 lg:gap-8">
-            <h3 className="text-tertiary uppercase font-bold text-[1.75rem]">
+            <h3 className="text-tertiary uppercase font-bold xl:text-[3rem] text-[2.2rem]">
               Contact Info
             </h3>
-            <p className="text-tertiary font-normal">
+            <p className="text-tertiary font-normal  xl:text-[1.2rem]">
               If you have any questions, just send us and email and don’t forget
               to follow and like all our social accounts to keep updated!
             </p>
